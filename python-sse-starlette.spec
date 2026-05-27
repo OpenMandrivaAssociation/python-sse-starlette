@@ -1,18 +1,27 @@
+%define module sse-starlette
+%define oname sse_starlette
+
 Name:		python-sse-starlette
-Version:	3.0.4
+Version:	3.4.4
 Release:	1
-Source0:	https://files.pythonhosted.org/packages/source/s/sse_starlette/sse_starlette-%{version}.tar.gz
 Summary:	SSE (Server-Sent Events) plugin for Starlette
-URL:		https://pypi.org/project/sse-starlette/
 License:	None
 Group:		Development/Python
+URL:		https://pypi.org/project/sse-starlette
+Source0:	https://files.pythonhosted.org/packages/source/s/%{oname}/%{oname}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
+
 BuildSystem:	python
-BuildRequires:	python%{pyver}dist(setuptools)
 BuildArch:	noarch
+BuildRequires:	python%{pyver}dist(setuptools)
 
 %description
 SSE (Server-Sent Events) plugin for Starlette
 
+%prep -a
+# Remove bundled egg-info
+rm -rf %{oname}.egg-info
+
 %files
-%{py_sitedir}/sse_starlette
-%{py_sitedir}/sse_starlette-*.*-info
+%doc README.md
+%{python_sitelib}/%{oname}
+%{python_sitelib}/%{oname}-%{version}.dist-info
