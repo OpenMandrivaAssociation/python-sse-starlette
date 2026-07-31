@@ -2,7 +2,7 @@
 %define oname sse_starlette
 
 Name:		python-sse-starlette
-Version:	3.4.4
+Version:	3.4.6
 Release:	1
 Summary:	SSE (Server-Sent Events) plugin for Starlette
 License:	None
